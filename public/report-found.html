@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Found Item | Student Lost &amp; Found</title>
+  <meta name="description" content="Found an item on university grounds? Register it with the campus recovery registry to help reunite it with the student.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/" class="brand-link">
+        <div class="brand-icon">🎓</div>
+        <div class="brand-text">
+          <h1>Student Lost &amp; Found</h1>
+          <span>University Campus Service</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        ☰
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/lost.html" class="nav-link">Lost Items</a>
+        <a href="/found.html" class="nav-link">Found Items</a>
+        <a href="/report-lost.html" class="nav-link">Report Lost</a>
+        <a href="/report-found.html" class="nav-link active">Report Found</a>
+        <a href="/my-reports.html" class="nav-link">My Reports</a>
+        <a href="/index.html#about" class="nav-link">About</a>
+        <a href="/admin.html" class="nav-link nav-cta">Staff / Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content" style="padding-top: 2.5rem;">
+    <div class="container">
+      
+      <!-- Submission Form Card -->
+      <div class="form-card" id="formCard">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <span class="status-badge" style="background-color: #dbeafe; color: #1d4ed8; font-weight: 700; margin-bottom: 0.5rem;">
+            🎁 Found Item Intake
+          </span>
+          <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">
+            Register a Found Belonging
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Thank you for helping our campus community! Fill out the details below to log the item in the university database.
+          </p>
+        </div>
+
+        <form id="reportForm" data-type="found" enctype="multipart/form-data">
+          <!-- Section 1: Item Details -->
+          <h3 class="form-section-title">1. Found Item Information</h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Item Name *</label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Apple AirPods Pro in White Case" required>
+            </div>
+
+            <div class="form-group">
+              <label for="category">Category *</label>
+              <select id="category" name="category" class="form-select" required>
+                <option value="" disabled selected>Select a Category...</option>
+                <option value="Electronics">📱 Electronics (Phone, Laptop, Charger, Earbuds)</option>
+                <option value="Wallet/Purse">👛 Wallet/Purse</option>
+                <option value="ID/Card">🪪 ID/Card (Student Card, Keycard, License)</option>
+                <option value="Keys">🔑 Keys (Dorm, Car, Locker)</option>
+                <option value="Books/Notes">📚 Books/Notes (Textbooks, Notebooks)</option>
+                <option value="Clothing">👕 Clothing (Jackets, Hoodies, Hats)</option>
+                <option value="Accessories">🕶️ Accessories (Jewelry, Glasses, Water Bottles)</option>
+                <option value="Documents">📄 Documents (Passports, Folders)</option>
+                <option value="Bags">🎒 Bags (Backpack, Tote, Duffle)</option>
+                <option value="Other">📦 Other Miscellaneous</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="color">Dominant Color *</label>
+              <input type="text" id="color" name="color" class="form-input" placeholder="e.g. White case with red sticker" required>
+            </div>
+
+            <div class="form-group">
+              <label for="item_date">Date Found *</label>
+              <input type="date" id="item_date" name="item_date" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-row single">
+            <div class="form-group">
+              <label for="location">Location Found (Where was it discovered?) *</label>
+              <input type="text" id="location" name="location" class="form-input" placeholder="e.g. Student Union Dining Area bench, Gym Locker Room, Math Hall 202" required>
+            </div>
+          </div>
+
+          <div class="form-row single">
+            <div class="form-group">
+              <label for="description">Item Description &amp; Identifying Clues *</label>
+              <textarea id="description" name="description" class="form-textarea" placeholder="Describe the physical condition, stickers, case style, marks, or location context..." required></textarea>
+            </div>
+          </div>
+
+          <!-- Section 2: Photo Upload -->
+          <h3 class="form-section-title">2. Photograph (Optional)</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Uploading a photo dramatically increases recovery speed. Max 5MB (JPG, PNG, WEBP).
+          </p>
+
+          <div class="image-upload-zone" id="imageDropZone">
+            <div class="upload-icon">📷</div>
+            <div style="font-weight: 600; color: var(--text-main); margin-bottom: 0.25rem;">
+              Click to choose a photo or drag &amp; drop here
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-subtle);">
+              Supports JPG, PNG, WEBP up to 5MB
+            </div>
+            <input type="file" id="imageFile" name="image" accept="image/jpeg,image/png,image/webp,image/gif">
+          </div>
+
+          <div class="image-preview-wrapper" id="imagePreviewWrapper" style="display: none;">
+            <img src="" alt="Preview" class="image-preview-thumb" id="previewThumb">
+            <div style="flex: 1;">
+              <span style="font-size: 0.875rem; font-weight: 600;">Image ready for upload</span>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Will be saved with your report</div>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm" id="removeImageBtn">Remove</button>
+          </div>
+
+          <!-- Section 3: Finder Contact -->
+          <h3 class="form-section-title">3. Finder Information</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            🔒 <strong>Finder Privacy:</strong> Your personal contact details will not be shared publicly. Campus security or front desk staff will handle all verified handovers.
+          </p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="finder_name">Your Full Name *</label>
+              <input type="text" id="finder_name" name="finder_name" class="form-input" placeholder="e.g. Jordan Miller" required>
+            </div>
+
+            <div class="form-group">
+              <label for="finder_email">University Email *</label>
+              <input type="email" id="finder_email" name="finder_email" class="form-input" placeholder="e.g. jordan.m@student.campus.edu" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="finder_phone">Phone Number (Optional)</label>
+              <input type="tel" id="finder_phone" name="finder_phone" class="form-input" placeholder="e.g. (555) 018-8291">
+            </div>
+          </div>
+
+          <div style="margin-top: 2rem; display: flex; justify-content: flex-end; gap: 1rem;">
+            <a href="/found.html" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-accent" style="padding: 0.85rem 2rem;">
+              Submit Found Item Report
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Success Card (Shown after submit) -->
+      <div class="form-card" id="successCard" style="display: none; text-align: center;">
+        <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+        <span class="status-badge active" style="margin-bottom: 0.75rem;">Item Successfully Registered</span>
+        <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">
+          Thank You for Reporting!
+        </h2>
+        <p style="color: var(--text-muted); font-size: 1rem; max-width: 520px; margin: 0 auto 1.5rem;">
+          You have made campus a better place. You can hold the item safely or hand it to the Campus Center Suite 104 desk.
+        </p>
+
+        <!-- Report ID Banner -->
+        <div style="background-color: #fef3c7; border: 2px dashed #d97706; border-radius: var(--radius-md); padding: 1.5rem; max-width: 440px; margin: 0 auto 2rem;">
+          <div style="font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em; color: #b45309; font-weight: 700;">
+            Official Found Report ID
+          </div>
+          <div style="font-size: 2rem; font-weight: 800; color: #b45309; margin: 0.35rem 0;" id="successReportId">
+            FOUND-XXXXXX
+          </div>
+          <div style="font-size: 0.9rem; color: var(--text-muted);" id="successItemName">
+            Item Name
+          </div>
+        </div>
+
+        <!-- Automatic Matches Section -->
+        <div id="successMatchesSection" style="display: none; text-align: left; background: #fffdf5; border: 1px solid #fde68a; border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.25rem;">⚡</span>
+            <strong style="color: #92400e; font-size: 1.05rem;">Potential Lost Item Matches!</strong>
+          </div>
+          <p style="font-size: 0.875rem; color: #78350f; margin-bottom: 1rem;">
+            The following students recently reported losing an item matching this description:
+          </p>
+          <div id="successMatchesList" style="display: flex; flex-direction: column; gap: 0.75rem;"></div>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="#" class="btn btn-primary" id="viewReportLink">View Item Details →</a>
+          <a href="/report-found.html" class="btn btn-secondary" onclick="window.location.reload()">Log Another Found Item</a>
+          <a href="/my-reports.html" class="btn btn-secondary">Check My Reports</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 Student Lost &amp; Found. University Campus Service.</div>
+        <div>Campus Lost &amp; Found Office: Campus Center Suite 104</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/report.js"></script>
+</body>
+</html>

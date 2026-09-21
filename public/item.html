@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Item Report Details | Student Lost &amp; Found</title>
+  <meta name="description" content="View full item details, specifications, potential matches, and submit a secure claim on Student Lost & Found.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/" class="brand-link">
+        <div class="brand-icon">🎓</div>
+        <div class="brand-text">
+          <h1>Student Lost &amp; Found</h1>
+          <span>University Campus Service</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        ☰
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/lost.html" class="nav-link">Lost Items</a>
+        <a href="/found.html" class="nav-link">Found Items</a>
+        <a href="/report-lost.html" class="nav-link">Report Lost</a>
+        <a href="/report-found.html" class="nav-link">Report Found</a>
+        <a href="/my-reports.html" class="nav-link">My Reports</a>
+        <a href="/index.html#about" class="nav-link">About</a>
+        <a href="/admin.html" class="nav-link nav-cta">Staff / Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content" style="padding-top: 2rem;">
+    <div class="container" id="itemDetailContainer">
+      <!-- Loaded dynamically by /js/item.js -->
+      <div class="empty-state">
+        <div class="empty-icon">⏳</div>
+        <div class="empty-title">Loading item report...</div>
+        <p class="empty-desc">Querying the campus database records...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Claim Ownership Modal -->
+  <div class="modal-backdrop" id="claimModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="claimModalTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="claimModalTitle">Submit Ownership Claim</h3>
+        <button type="button" class="modal-close" id="closeClaimModalBtn" aria-label="Close modal">&times;</button>
+      </div>
+
+      <form id="claimForm">
+        <input type="hidden" id="claimItemId" name="item_id">
+        <div class="modal-body">
+          <p id="claimItemInfoText" style="font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: 1rem;"></p>
+
+          <div style="background-color: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.85rem; font-size: 0.825rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+            🛡️ <strong>Verification Protocol:</strong> To ensure items return to their legitimate owner, please describe details only the rightful owner would know (e.g., lock screen background, contents inside a wallet or bag, engravings, serial number, or student ID number).
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="claimant_name">Your Full Name *</label>
+            <input type="text" id="claimant_name" name="claimant_name" class="form-input" placeholder="e.g. Alex Rivera" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="claimant_email">University Email *</label>
+            <input type="email" id="claimant_email" name="claimant_email" class="form-input" placeholder="e.g. alex.rivera@student.campus.edu" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="claimant_phone">Contact Phone Number *</label>
+            <input type="tel" id="claimant_phone" name="claimant_phone" class="form-input" placeholder="e.g. (555) 014-4920" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="explanation" id="claimExplanationLabel">
+              Why does this item belong to you? (Provide specific details) *
+            </label>
+            <textarea id="explanation" name="explanation" class="form-textarea" placeholder="For example: 'The wallet contains my student ID card, a blue gym pass, and a receipt dated Sep 18.'" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="proof">Identifying Proof / Marks (Optional)</label>
+            <input type="text" id="proof" name="proof" class="form-input" placeholder="e.g. Student ID #884920, serial # ending in 492, initials on cover">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelClaimModalBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit Claim for Review</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 Student Lost &amp; Found. University Campus Service.</div>
+        <div>Campus Lost &amp; Found Office: Campus Center Suite 104</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/item.js"></script>
+</body>
+</html>

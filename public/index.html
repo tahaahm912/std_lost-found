@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Lost &amp; Found | University Campus Service</title>
+  <meta name="description" content="Official University Student Lost & Found service to report lost belongings, log found items, and reunite students with their property.">
+  <meta property="og:title" content="Student Lost &amp; Found | University Campus Service">
+  <meta property="og:description" content="Official University Student Lost & Found service. Report lost items, log found belongings, and search active campus reports.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/" class="brand-link" id="brandLink">
+        <div class="brand-icon">🎓</div>
+        <div class="brand-text">
+          <h1>Student Lost &amp; Found</h1>
+          <span>University Campus Service</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        ☰
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="/" class="nav-link active" id="navHome">Home</a>
+        <a href="/lost.html" class="nav-link" id="navLost">Lost Items</a>
+        <a href="/found.html" class="nav-link" id="navFound">Found Items</a>
+        <a href="/report-lost.html" class="nav-link" id="navReportLost">Report Lost</a>
+        <a href="/report-found.html" class="nav-link" id="navReportFound">Report Found</a>
+        <a href="/my-reports.html" class="nav-link" id="navMyReports">My Reports</a>
+        <a href="#about" class="nav-link" id="navAbout">About</a>
+        <a href="/admin.html" class="nav-link nav-cta" id="navAdmin">Staff / Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-tag">
+          <span>🏛️</span> Official Campus Recovery Network
+        </div>
+        <h2 class="hero-title">
+          Misplaced something on campus? <br>
+          <span>We're here to help you get it back.</span>
+        </h2>
+        <p class="hero-subtitle">
+          The centralized portal for university students and staff to report lost personal belongings, register found items, and match claims securely.
+        </p>
+
+        <div class="hero-actions">
+          <a href="/report-lost.html" class="btn btn-primary" id="heroReportLostBtn">
+            <span>🔍</span> Report Lost Item
+          </a>
+          <a href="/report-found.html" class="btn btn-accent" id="heroReportFoundBtn">
+            <span>🎁</span> Report Found Item
+          </a>
+          <a href="/lost.html" class="btn btn-secondary" id="heroBrowseItemsBtn">
+            <span>📋</span> Browse Items
+          </a>
+        </div>
+
+        <!-- Live Statistics Counter -->
+        <div class="stats-grid">
+          <div class="stat-card" id="cardStatLost">
+            <div class="stat-icon blue">🔍</div>
+            <div>
+              <div class="stat-number" id="statTotalLost">-</div>
+              <div class="stat-label">Lost Items Logged</div>
+            </div>
+          </div>
+          <div class="stat-card" id="cardStatFound">
+            <div class="stat-icon amber">🎁</div>
+            <div>
+              <div class="stat-number" id="statTotalFound">-</div>
+              <div class="stat-label">Found Items Logged</div>
+            </div>
+          </div>
+          <div class="stat-card" id="cardStatReturned">
+            <div class="stat-icon green">🎉</div>
+            <div>
+              <div class="stat-number" id="statTotalReturned">-</div>
+              <div class="stat-label">Items Returned</div>
+            </div>
+          </div>
+          <div class="stat-card" id="cardStatActive">
+            <div class="stat-icon purple">⚡</div>
+            <div>
+              <div class="stat-number" id="statActiveReports">-</div>
+              <div class="stat-label">Active Reports</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Search & Categories Section -->
+    <section style="padding: 3rem 0;">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h3 class="section-title">Recently Reported Items</h3>
+            <p class="section-desc">Real-time reports filed by students, campus security, and academic buildings.</p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="/lost.html" class="btn btn-secondary btn-sm" id="viewAllLostBtn">All Lost Items →</a>
+            <a href="/found.html" class="btn btn-secondary btn-sm" id="viewAllFoundBtn">All Found Items →</a>
+          </div>
+        </div>
+
+        <!-- Items grid container -->
+        <div class="items-grid" id="itemsContainer" data-item-type="all"></div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section style="background-color: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 3.5rem 0;">
+      <div class="container">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto 2.5rem;">
+          <h3 class="section-title" style="margin-bottom: 0.5rem;">How the University Recovery Process Works</h3>
+          <p class="section-desc">Designed with student safety, privacy protection, and automated match detection.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
+          <div class="stat-card" style="flex-direction: column; align-items: flex-start;">
+            <div class="stat-icon blue" style="margin-bottom: 0.5rem;">1️⃣</div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Submit a Report</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              File a simple description with item specifications, campus location, color, and photos. You will receive a unique Report ID.
+            </p>
+          </div>
+
+          <div class="stat-card" style="flex-direction: column; align-items: flex-start;">
+            <div class="stat-icon amber" style="margin-bottom: 0.5rem;">2️⃣</div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Automated Matching</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              Our smart scoring algorithm compares category, dates, keywords, and campus locations to suggest possible matches instantly.
+            </p>
+          </div>
+
+          <div class="stat-card" style="flex-direction: column; align-items: flex-start;">
+            <div class="stat-icon green" style="margin-bottom: 0.5rem;">3️⃣</div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Secure Claim &amp; Return</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              Submit a verified ownership claim with distinctive proof (ID, contents, serials). Campus staff verifies and coordinates the handoff.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="padding: 3.5rem 0;">
+      <div class="container" style="max-width: 860px;">
+        <h3 class="section-title" style="text-align: center; margin-bottom: 1rem;">About Student Lost &amp; Found</h3>
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-sm); line-height: 1.7; color: var(--text-muted);">
+          <p style="margin-bottom: 1rem;">
+            <strong>Student Lost &amp; Found</strong> is the centralized recovery directory serving our university campus. Whether you misplaced your AirPods at the student center, dropped your dorm room keys in the gym, or discovered a binder in a lecture hall, our platform coordinates safe reunions.
+          </p>
+          <p style="margin-bottom: 1rem;">
+            <strong>Privacy Guarantee:</strong> Student contact info (phone numbers and student emails) is shielded from public browsing to prevent spam or unauthorized contact. Communications and claims are verified through our administrative recovery team.
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+            <div><strong>Location:</strong> Campus Center Suite 104</div>
+            <div><strong>Hours:</strong> Mon–Fri 8:00 AM – 6:00 PM</div>
+            <div><strong>Desk Phone:</strong> (555) 019-LOST</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.5rem;">🎓</span>
+            <strong style="color: var(--primary); font-size: 1.1rem;">Student Lost &amp; Found</strong>
+          </div>
+          <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6;">
+            A student-centered recovery service designed to help university members quickly locate, report, and recover misplaced personal property safely.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Browse</h4>
+          <ul class="footer-links">
+            <li><a href="/lost.html">Lost Belongings</a></li>
+            <li><a href="/found.html">Found Belongings</a></li>
+            <li><a href="/my-reports.html">Check My Reports</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Report</h4>
+          <ul class="footer-links">
+            <li><a href="/report-lost.html">Report Lost Item</a></li>
+            <li><a href="/report-found.html">Report Found Item</a></li>
+            <li><a href="#about">Recovery Guidelines</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Administration</h4>
+          <ul class="footer-links">
+            <li><a href="/admin.html">Staff Admin Portal</a></li>
+            <li><a href="#about">Campus Desk Info</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Student Lost &amp; Found. University Campus Community Service.</div>
+        <div>Built with Node.js, Express &amp; SQLite.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/items.js"></script>
+</body>
+</html>

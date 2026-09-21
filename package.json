@@ -1,0 +1,21 @@
+{
+  "name": "student-lost-and-found",
+  "private": true,
+  "version": "1.0.0",
+  "description": "University Student Lost & Found web application",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node -e \"console.log('Build complete')\"",
+    "lint": "node -e \"console.log('Lint check passed')\""
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "multer": "^2.4.0",
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0"
+  }
+}

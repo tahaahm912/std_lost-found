@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Found Items | Student Lost &amp; Found</title>
+  <meta name="description" content="Browse belongings found on university grounds waiting to be reclaimed by their rightful owners.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="/" class="brand-link">
+        <div class="brand-icon">🎓</div>
+        <div class="brand-text">
+          <h1>Student Lost &amp; Found</h1>
+          <span>University Campus Service</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        ☰
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/lost.html" class="nav-link">Lost Items</a>
+        <a href="/found.html" class="nav-link active">Found Items</a>
+        <a href="/report-lost.html" class="nav-link">Report Lost</a>
+        <a href="/report-found.html" class="nav-link">Report Found</a>
+        <a href="/my-reports.html" class="nav-link">My Reports</a>
+        <a href="/index.html#about" class="nav-link">About</a>
+        <a href="/admin.html" class="nav-link nav-cta">Staff / Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content" style="padding-top: 2rem;">
+    <div class="container">
+      <!-- Breadcrumb & Header -->
+      <div class="section-header">
+        <div>
+          <span class="status-badge" style="background-color: #dbeafe; color: #1d4ed8; font-weight: 700; margin-bottom: 0.5rem;">
+            🎁 Items In Custody
+          </span>
+          <h2 class="section-title">Found Belongings Registry</h2>
+          <p class="section-desc">Recovered items turned in by good samaritans, security personnel, and campus departments.</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <span class="status-badge active" id="itemCountBadge">Loading...</span>
+          <a href="/report-found.html" class="btn btn-accent btn-sm">
+            + Report Found Item
+          </a>
+        </div>
+      </div>
+
+      <!-- Search & Filters Card -->
+      <div class="filter-card">
+        <div class="filter-grid">
+          <div class="form-group">
+            <label for="searchInput">Search Keywords</label>
+            <input type="text" id="searchInput" class="form-input" placeholder="e.g. Leather wallet, keys, carabiner, blue lanyard...">
+          </div>
+
+          <div class="form-group">
+            <label for="categoryFilter">Category</label>
+            <select id="categoryFilter" class="form-select">
+              <option value="all">All Categories</option>
+              <option value="Electronics">📱 Electronics</option>
+              <option value="Wallet/Purse">👛 Wallet/Purse</option>
+              <option value="ID/Card">🪪 ID/Card</option>
+              <option value="Keys">🔑 Keys</option>
+              <option value="Books/Notes">📚 Books/Notes</option>
+              <option value="Clothing">👕 Clothing</option>
+              <option value="Accessories">🕶️ Accessories</option>
+              <option value="Documents">📄 Documents</option>
+              <option value="Bags">🎒 Bags</option>
+              <option value="Other">📦 Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="locationFilter">Campus Location</label>
+            <select id="locationFilter" class="form-select">
+              <option value="all">All Locations</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="dateFilter">Date Found</label>
+            <select id="dateFilter" class="form-select">
+              <option value="all">Any Date</option>
+              <option value="today">Today</option>
+              <option value="week">Past 7 Days</option>
+              <option value="month">Past 30 Days</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="sortSelect">Sort By</label>
+            <select id="sortSelect" class="form-select">
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+              <option value="name_asc">Name (A-Z)</option>
+              <option value="name_desc">Name (Z-A)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; margin-top: 0.75rem;">
+          <button id="resetFilters" class="btn btn-secondary btn-sm">Reset Filters</button>
+        </div>
+      </div>
+
+      <!-- Items Grid -->
+      <div class="items-grid" id="itemsContainer" data-item-type="found"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 Student Lost &amp; Found. University Campus Service.</div>
+        <div><a href="/report-lost.html">Lost your property? File a report here →</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/items.js"></script>
+</body>
+</html>
